@@ -2,50 +2,69 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|fist_kana|string|null: false|
+|last_kana|string|null: false|
+|birthday|integer|null: false|
 
 
 ### Association
-- has_many :comments, through: :users_comments
 - has_many :items
-- has_many :users_comments
 
-
-## users_itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|comment_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :comment
 
 ## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
-|image|string|null: false, foreign_key: true|
-|product name|string|null: false, foreign_key: true|
-|explanation|text|null: false, foreign_key: true|
-|price|integer|null: false, foreign_key: true|
+|images|string|null: false, foreign_key: true|
+|items_name|string|null: false, foreign_key: true|
+|info|text|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 
 ### Association
 - belongs_to :user
 - belongs_to :comment
 
+
 ## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false, foreign_key: true|
+|user_id|integer|null: false|
+|body|text|null: false|
 
 ### Association
-- has_many :users, through: :users_comments
 - has_many :items
-- has_many :users_comments
+
+## transactionテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|items_id|integer|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :items
+- belongs_to :address
+
+## addressテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|post_card|integer|null: false, foreign_key: true|
+|prefectures|string|null: false, foreign_key: true|
+|city|string|null: false, foreign_key: true|
+|address|string|null: false, foreign_key: true|
+|building_name|string|null: false, foreign_key: true|
+|phone_number|integer|null: false, foreign_key: true|
+
+
+### Association
+- has_many :transaction
+
