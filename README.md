@@ -1,24 +1,51 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+- has_many :comments, through: :users_comments
+- has_many :items
+- has_many :users_comments
 
-* System dependencies
 
-* Configuration
+## users_itemsテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|comment_id|integer|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to :user
+- belongs_to :comment
 
-* How to run the test suite
+## itemsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, foreign_key: true|
+|image|string|null: false, foreign_key: true|
+|product name|string|null: false, foreign_key: true|
+|explanation|text|null: false, foreign_key: true|
+|price|integer|null: false, foreign_key: true|
 
-* Deployment instructions
 
-* ...
+### Association
+- belongs_to :user
+- belongs_to :comment
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false, foreign_key: true|
+
+### Association
+- has_many :users, through: :users_comments
+- has_many :items
+- has_many :users_comments
