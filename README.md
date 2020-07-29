@@ -9,37 +9,48 @@
 |last_name|string|null: false|
 |fist_kana|string|null: false|
 |last_kana|string|null: false|
-|birthday|integer|null: false|
+|date|integer|null: false|
 
 
 ### Association
 - has_many :items
+- has_many :transaction
+- has_many :comments
 
 
 ## itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|images|string|null: false, foreign_key: true|
-|items_name|string|null: false, foreign_key: true|
-|info|text|null: false, foreign_key: true|
+|images|text|null: false|
+|items_name|string|null: false|
+|info|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|category|string|null: false|
+|product_status|string|null: false|
+|days_shipping|string|null: false|
+|shipping_region|string|null: false|
+|shipping_charges|string|null: false|
+|price|integer|null: false|
+
 
 
 ### Association
 - belongs_to :user
 - belongs_to :comment
+- has_many :transaction
 
 
 ## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|integer|null: false| foreign_key: true|
 |body|text|null: false|
 
 ### Association
 - has_many :items
+- belongs_to :user
 
 ## transactionテーブル
 
@@ -57,12 +68,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|post_card|integer|null: false, foreign_key: true|
-|prefectures|string|null: false, foreign_key: true|
-|city|string|null: false, foreign_key: true|
-|address|string|null: false, foreign_key: true|
-|building_name|string|null: false, foreign_key: true|
-|phone_number|integer|null: false, foreign_key: true|
+|post_card|integer|null: false|
+|prefectures|string|
+|city|string|
+|address|string|
+|building_name|string|
+|phone_number|string|null: false|
 
 
 ### Association
