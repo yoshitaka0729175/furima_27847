@@ -1,24 +1,82 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|fist_kana|string|null: false|
+|last_kana|string|null: false|
+|date|date|null: false|
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+- has_many :items
+- has_many :item_purchases
+- has_many :comments
 
-* System dependencies
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|images|text|null: false|
+|name|string|null: false|
+|info|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|category|string|null: false|
+|product_status|string|null: false|
+|days_shipping|string|null: false|
+|shipping_region|string|null: false|
+|shipping_charges|string|null: false|
+|price|integer|null: false|
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- belongs_to :comment
+- has_many :item_purchases
+- belongs_to :address
 
-* Deployment instructions
 
-* ...
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false| foreign_key: true|
+|body|text|null: false|
+
+### Association
+- has_many :items
+- belongs_to :user
+
+## item_purchasesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|items_id|integer|null: false, foreign_key: true|
+
+
+### Association
+- belongs_to :items
+- belongs_to :user
+
+## addressテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefectures|string|
+|city|string|
+|address|string|
+|building_name|string|
+|phone_number|string|null: false|
+
+
+### Association
+- has_many :items
+
