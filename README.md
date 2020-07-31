@@ -26,6 +26,11 @@
 |name|string|null: false|
 |info|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|category|string|null: false|
+|product_status|string|null: false|
+|days_shipping|string|null: false|
+|shipping_region|string|null: false|
+|shipping_charges|string|null: false|
 |price|integer|null: false|
 
 
