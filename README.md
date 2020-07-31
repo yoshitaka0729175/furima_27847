@@ -14,7 +14,7 @@
 
 ### Association
 - has_many :items
-- has_many :transaction
+- has_many :item_purchases
 - has_many :comments
 
 
@@ -38,7 +38,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :comment
-- has_many :transaction
+- has_many :item_purchases
 
 
 ## commentsテーブル
@@ -52,7 +52,7 @@
 - has_many :items
 - belongs_to :user
 
-## transactionテーブル
+## item_purchasesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -77,5 +77,5 @@
 
 
 ### Association
-- has_many :transaction
+- has_many :item_purchases
 
