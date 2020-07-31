@@ -26,11 +26,6 @@
 |name|string|null: false|
 |info|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|category|string|null: false|
-|product_status|string|null: false|
-|days_shipping|string|null: false|
-|shipping_region|string|null: false|
-|shipping_charges|string|null: false|
 |price|integer|null: false|
 
 
@@ -70,9 +65,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|string|null: false|
-|prefectures|string|
-|city|string|
-|address|string|
+|city|string|null: false|
+|address|string|null: false|
 |building_name|string|
 |phone_number|string|null: false|
 
