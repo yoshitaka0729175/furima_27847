@@ -9,7 +9,7 @@
 |last_name|string|null: false|
 |fist_kana|string|null: false|
 |last_kana|string|null: false|
-|date|integer|null: false|
+|date|date|null: false|
 
 
 ### Association
@@ -23,7 +23,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |images|text|null: false|
-|items_name|string|null: false|
+|name|string|null: false|
 |info|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category|string|null: false|
@@ -62,13 +62,13 @@
 
 ### Association
 - belongs_to :items
-- belongs_to :address
+- belongs_to :user
 
 ## addressテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|post_card|integer|null: false|
+|postal_code|string|null: false|
 |prefectures|string|
 |city|string|
 |address|string|
@@ -77,5 +77,5 @@
 
 
 ### Association
-- has_many :item_purchases
+- has_many :items
 
