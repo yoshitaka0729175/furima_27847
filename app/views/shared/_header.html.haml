@@ -1,0 +1,18 @@
+%header.top-page-header
+  .search-bar-contents
+    = link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/"
+    %form.search-form{:action => "#"}
+      %input.input-box{:placeholder => "キーワードから探す"}/
+      %button.search-button
+        = image_tag "search.png", class:"search-icon"
+  .nav
+    %ul.lists-left
+      %li= link_to 'カテゴリー', "#", class: "category-list"
+      %li= link_to 'ブランド', "#", class: "brand-list"
+    
+    %ul.lists-right
+      - if user_signed_in?
+        %li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        %li= link_to 'ログイン', new_user_session_path, class: "login"
+        %li= link_to '新規登録', new_user_registration_path, class: "sign-up"
