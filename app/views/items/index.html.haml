@@ -110,6 +110,6 @@
                 %span.star-count 0
 .purchase-btn
   %span.purchase-btn-text 出品する
-  %a{:href => "#"}
-    = image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon"
-= render "shared/footer"
+  = link_to "/items/new"
+  = image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon"
+  = render "shared/footer"

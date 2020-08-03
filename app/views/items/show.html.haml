@@ -58,11 +58,11 @@
           コメントする
           %span
   .links
-    %a.change-item-btn{:href => "#"}
+    = link_to "#" class:"change-item-btn"
       ＜ 前の商品
-    %a.change-item-btn{:href => "#"}
+    = link_to "#" class:"change-item-btn"
       後ろの商品 ＞
-  %a.another-item{:href => "#"}
+  = link_to "#" class:"another-item"
     = "商品のカテゴリー名"
     をもっと見る
 = render "shared/footer"

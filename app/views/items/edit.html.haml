@@ -1,4 +1,7 @@
 %body
+
+  = render "shared/error_messages"
+
   .items-sell-contents
     %header.items-sell-header
       = link_to image_tag('furima-logo-color.png' , size: '185x50'), "/"
@@ -37,7 +40,7 @@
         .items-detail
           .weight-bold-text.question-text
             %span 配送について
-            %a.question{:href => "#"} ?
+            = link_to "#" class:"question"?
           .form
             .weight-bold-text
               配送料の負担
@@ -57,7 +60,7 @@
               販売価格
               %br>/
               (¥300〜9,999,999)
-            %a.question{:href => "#"} ?
+            = link_to "#" class: "question"
           %div
             .price-content
               .price-text
@@ -77,16 +80,16 @@
                 円
         .caution
           %p.sentence
-            %a{:href => "#"} 禁止されている出品、
-            %a{:href => "#"} 行為
+            = link_to "#" 禁止されている出品、
+            = link_to "#" 行為
             を必ずご確認ください。
           %p.sentence
             またブランド品でシリアルナンバー等がある場合はご記載ください。
-            %a{:href => "#"} 偽ブランドの販売
+            = link_to "#" 偽ブランドの販売
             は犯罪であり処罰される可能性があります。
           %p.sentence
             また、出品をもちまして
-            %a{:href => "#"} 加盟店規約
+            = link_to "#"加盟店規約
             に同意したことになります。
         .sell-btn-contents
           = f.submit "変更する" ,class:"sell-btn"
@@ -94,11 +97,11 @@
     %footer.items-sell-footer
       %ul.menu
         %li
-          %a{:href => "#"} プライバシーポリシー
+          = link_to "#"プライバシーポリシー
         %li
-          %a{:href => "#"} フリマ利用規約
+          = link_to "#"フリマ利用規約
         %li
-          %a{:href => "#"} 特定商取引に関する表記
+          = link_to "#"特定商取引に関する表記
       = link_to image_tag('furima-logo-color.png' , size: '185x50'), "/"
       %p.inc
         ©︎Furima,Inc.
