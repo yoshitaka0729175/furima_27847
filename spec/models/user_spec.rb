@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe User do
   describe '#index' do
-
-
-    
+    before do
+      @user = User.save
+    end
+ 
     it "is valid with a nickname, email, password, password_confirmation, first_kana, last_kana, first_name, last_name, date" do
       user = build(:user)
       expect(user).to be_valid
