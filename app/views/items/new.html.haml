@@ -29,7 +29,7 @@
             .weight-bold-text
               カテゴリー
               %span.indispensable 必須
-            = f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box"})
+            = f.collection_select(:category_id, [Category.all], :name, :name, {}, {class:"select-box"})
             .weight-bold-text
               商品の状態
               %span.indispensable 必須
@@ -37,7 +37,7 @@
         .items-detail
           .weight-bold-text.question-text
             %span 配送について
-            =link_to "#" class: "question" ?
+            = link_to '?', "#", class: "question" 
           .form
             .weight-bold-text
               配送料の負担
@@ -57,7 +57,7 @@
               販売価格
               %br>/
               (¥300〜9,999,999)
-            = link_to "#" class: "question" ?
+            = link_to "#", "?" ,class: "question" 
           %div
             .price-content
               .price-text
@@ -77,16 +77,16 @@
                 円
         .caution
           %p.sentence
-            = link_to "#" 禁止されている出品、
-            = link_to "#" 行為
+            = link_to "#" ,"禁止されている出品、"
+            = link_to "#" ,"行為"
             を必ずご確認ください。
           %p.sentence
             またブランド品でシリアルナンバー等がある場合はご記載ください。
-            = link_to "#" 偽ブランドの販売
+            = link_to "#" ,"偽ブランドの販売"
             は犯罪であり処罰される可能性があります。
           %p.sentence
             また、出品をもちまして
-            = link_to "#"加盟店規約
+            = link_to "#","加盟店規約"
             に同意したことになります。
         .sell-btn-contents
           = f.submit "出品する" ,class:"sell-btn"
@@ -94,11 +94,11 @@
     %footer.items-sell-footer
       %ul.menu
         %li
-          = link_to "#" プライバシーポリシー
+          = link_to "#" ,"プライバシーポリシー"
         %li
-          = link_to "#" フリマ利用規約
+          = link_to "#" ,"フリマ利用規約"
         %li
-          = link_to "#" 特定商取引に関する表記
+          = link_to "#" ,"特定商取引に関する表記"
       = link_to image_tag('furima-logo-color.png' , size: '185x50'), "/"
       %p.inc
         ©︎Furima,Inc.

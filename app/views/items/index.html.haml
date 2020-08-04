@@ -108,8 +108,7 @@
               .star-btn
                 = image_tag "star.png", class:"star-icon"
                 %span.star-count 0
-= link_to '#',"items/new" 
-  .purchase-btn
+  = link_to "items/new", class: "purchase-btn" do
     %span.purchase-btn-text 出品する
     = image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon"
-    = render "shared/footer"
+  = render "shared/footer"
