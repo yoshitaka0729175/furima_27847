@@ -64,3 +64,7 @@ gem 'active_hash'
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem 'rails-controller-testing'
 gem 'rails-i18n'
+
+group :production do
+  gem 'rails_12factor'
+end
