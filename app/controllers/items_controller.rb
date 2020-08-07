@@ -13,12 +13,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def new
+    @item = Item.new
+  end
+
   def edit
   end
 
   def update
     @item.update(item_params)
-    redirect_to root_path
+    if item.save
+      redirect_to root_path
+    else
+      render :update
   end
 
   def search
@@ -32,7 +39,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price, :info, :name, :image)
+    params.require(:item).permit(:category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price, :info, :name, :image).merge(user_id: current_user.id)
   end
 
   def set_item
