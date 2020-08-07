@@ -8,11 +8,6 @@ RSpec.describe Item, type: :model do
       @item.image = fixture_file_upload('public/images/test_image.png')
     end
 
-    # it "is valid with a name, images, info, product_status_id, category_id, days_shipping_id, shipping_region_id, shipping_charges_id, price" do
-    #   # item = build(:item)
-    #   expect(@item).to be_valid
-    # end
-
     it '全てvalidatesを通過するのであれば成功' do
       expect(@item).to be_valid
     end
