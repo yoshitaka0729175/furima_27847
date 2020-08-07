@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     if item.save
       redirect_to root_path
     else
-      render :update
+      render :edit
   end
 
   def search
