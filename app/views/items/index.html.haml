@@ -76,7 +76,7 @@
     %h2.title ピックアップカテゴリー
     = link_to '新規投稿商品', "new_item_path" ,class: "subtitle" 
   .item-group
-    - @items.each do |item| 
+    - @items.order(id: :DESC).each do |item| 
       - item.image
         -  if item.image.present?
       %ul.item-lists
