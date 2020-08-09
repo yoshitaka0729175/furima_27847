@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
+
   def index
-    @item = Item.new
+    @items = Item.all
   end
 
   def create
@@ -26,6 +27,11 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def show 
+    @item = image.find(params[:id])
   end
 
   def search

@@ -238,16 +238,24 @@ a {
 }
 
 .item-lists {
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+
 }
 
 .item-lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
+
+}
+.item-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+
 }
 
 
@@ -258,6 +266,7 @@ a {
 .item-img {
   width: 33vh;
   height: 33vh;
+
 }
 
 .sold-out {
