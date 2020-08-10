@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update,]
+  before_action :set_item, only: [:edit, :update]
 
   def index
     @items = Item.all.order(created_at: :DESC)
@@ -27,10 +27,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @item = Item.find(params[:id])
   end
-
 
   def search
     @items = Item.search(params[:keyword])
