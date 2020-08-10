@@ -77,6 +77,12 @@
   align-items: flex-end;
 }
 
+.lists-right li{
+  padding-right: 10px;
+}
+
+
+
 
 .user-nickname {
   text-decoration: none;
