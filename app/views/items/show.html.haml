@@ -13,7 +13,7 @@
         円
       %span.item-postage
         = @item.shipping_charges.name
-    - if user_signed_in?
+    - if user_signed_in? && @item.user_id == current_user.id
       = link_to '商品の編集',edit_item_path(@item.id) , method: :get, class: "item-red-btn"
       %p.or-text or
       = link_to '削除', "#", method: :delete, class:'item-destroy'

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :show]
 
   def index
     @items = Item.all.order(created_at: :DESC)
@@ -14,12 +14,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def new
+    @item = Item.new
+  end
+
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -28,7 +30,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def search
@@ -42,7 +43,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price, :info, :name).merge(user_id: current_user.id)
+    params.require(:item).permit(:info, :name, :image, :category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item

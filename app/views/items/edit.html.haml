@@ -15,7 +15,7 @@
           .click-upload
             %p
               クリックしてファイルをアップロード
-            = f.file_field :images
+            = f.file_field :image
         .new-items
           .weight-bold-text
             商品名
@@ -53,7 +53,7 @@
             .weight-bold-text
               発送までの日数
               %span.indispensable 必須
-            = f.collection_select(:days_shipping, DaysShipping.all, :id, :name, {}, {class:"select-box"})
+            = f.collection_select(:days_shipping_id, DaysShipping.all, :id, :name, {}, {class:"select-box"})
         .sell-price
           .weight-bold-text.question-text
             %span
