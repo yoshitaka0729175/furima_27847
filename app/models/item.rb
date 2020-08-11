@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_charges
   belongs_to_active_hash :shipping_region
   belongs_to_active_hash :days_shipping
-
+  
   # 空の投稿を保存できないようにする
   #--だと登録できないようにする
   with_options presence: true do

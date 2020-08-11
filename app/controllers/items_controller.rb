@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     @items = Item.all.order(created_at: :DESC)
   end
 
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -12,6 +13,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def new
+    @item = Item.new
   end
 
   def edit
@@ -42,7 +47,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price, :info, :name).merge(user_id: current_user.id)
+    params.require(:item).permit(:info, :name,:image,:category_id, :product_status_id, :shipping_charges_id, :shipping_region_id, :days_shipping_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
