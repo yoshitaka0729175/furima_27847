@@ -31,7 +31,7 @@ describe User do
       # 新規登録の時にnpasswordが空だと登録不可を試す
       @user.password = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:password]).to include('を入力してください', 'を入力してください', 'は不正な値です')
+      expect(@user.errors[:password]).to include('を入力してください', 'を入力してください')
       # なぜ保存できないのかを返すerrorsメソッド
     end
 
@@ -39,21 +39,21 @@ describe User do
       # 新規登録の時にpasswordが空だと登録不可を試す
       @user.password_confirmation = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:password_confirmation]).to include('を入力してください', 'は不正な値です')
+      expect(@user.errors[:password_confirmation]).to include('を入力してください')
       # パスワードと一致しているか確認 doesn't match Password
     end
     it 'is invalid without a first_name' do
       # 新規登録の時にfirst_nameが空だと登録不可を試す
       @user.first_name = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:first_name]).to include('を入力してください', 'は不正な値です')
+      expect(@user.errors[:first_name]).to include('名前を入力してください')
       # なぜ保存できないのかを返すerrorsメソッド
     end
     it 'is invalid without a last_name' do
       # 新規登録の時にlast_nameが空だと登録不可を試す
       @user.last_name = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:last_name]).to include('を入力してください', 'は不正な値です')
+      expect(@user.errors[:last_name]).to include('名前を入力してください')
       # なぜ保存できないのかを返すerrorsメソッド
     end
 
@@ -61,14 +61,14 @@ describe User do
       # 新規登録の時にfirst_kanaが空だと登録不可を試す
       @user.first_kana = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:first_kana]).to include('を入力してください', 'は不正な値です')
+      expect(@user.errors[:first_kana]).to include("を入力してください", "カナを入力してください")
       # なぜ保存できないのかを返すerrorsメソッド
     end
     it 'is invalid without a last_kana' do
       # 新規登録の時にnlast_kanaが空だと登録不可を試す
       @user.last_kana = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:last_kana]).to include('を入力してください', 'は不正な値です')
+      expect(@user.errors[:last_kana]).to include("を入力してください", "カナを入力してください")
       # なぜ保存できないのかを返すerrorsメソッド
     end
     it 'is invalid without a date' do

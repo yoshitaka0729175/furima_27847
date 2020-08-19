@@ -1,4 +1,4 @@
-$(function(){
+window.addEventListener("DOMContentLoaded",()=>{
   $('.price-input').on('keyup',function(){
     let input = $(".price-input").val();
     let tax = Math.round(input*0.1);
