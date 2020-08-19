@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :image
-  has_many :item_purchases
+  has_one :order, dependent: :destroy
+  has_one :addresses, dependent: :destroy
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions

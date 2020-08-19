@@ -14,7 +14,7 @@
 
 ### Association
 - has_many :items
-- has_many :item_purchases
+- has_many :orders
 - has_many :comments
 
 
@@ -38,7 +38,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :comment
-- has_many :item_purchases
+- has_many :orders
 - belongs_to :address
 
 
@@ -53,7 +53,7 @@
 - has_many :items
 - belongs_to :user
 
-## item_purchasesテーブル
+## ordersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -69,7 +69,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|string|null: false|
+|postal_cord|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|

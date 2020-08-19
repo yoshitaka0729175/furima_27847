@@ -1,4 +1,6 @@
 = render "shared/second-header"
+= render "shared/user_error_messages"
+
 = form_with class: 'registration-main', local: true, url:user_registration_path, model:@user do |f|
   .form-wrap
     .form-header
