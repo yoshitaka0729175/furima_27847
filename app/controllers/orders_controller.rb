@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
   before_action :move_to_login, only: :index
   before_action :move_to_index, only: :index
-  before_action :set_item
+  before_action :set_item, only: [:index, :create]
 
   def index
     @order = OrderAddresses.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -16,7 +15,6 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
