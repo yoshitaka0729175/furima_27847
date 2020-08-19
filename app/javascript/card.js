@@ -13,8 +13,6 @@ const pay = () => {
       exp_month: formData.get("order_addresses[exp_month]"),
       exp_year: `20${formData.get("order_addresses[exp_year]")}`,
     };
-
-    console.log(formData.get("order_addresses[number]"));
     
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
@@ -32,7 +30,7 @@ const pay = () => {
         document.getElementById("charge-form").reset();
       } else {
         alert('カードの情報を入力してください')
-        document.getElementById("submit").removeAttribute("disabled");
+        document.getElementById("message").removeAttribute("disabled");
 
       }
     });

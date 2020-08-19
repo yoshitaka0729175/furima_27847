@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
       @order.save
       redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render 'index'
     end
   end
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
     Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price, # 商品の値段
-      card: params[:es][:token], # カードトークン
+      card: params[:order_addresses][:token], # カードトークン
       currency: 'jpy' # 通貨の種類
     )
   end
