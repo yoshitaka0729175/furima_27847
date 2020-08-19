@@ -61,14 +61,14 @@ describe User do
       # 新規登録の時にfirst_kanaが空だと登録不可を試す
       @user.first_kana = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:first_kana]).to include("を入力してください", "カナを入力してください")
+      expect(@user.errors[:first_kana]).to include('を入力してください', 'カナを入力してください')
       # なぜ保存できないのかを返すerrorsメソッド
     end
     it 'is invalid without a last_kana' do
       # 新規登録の時にnlast_kanaが空だと登録不可を試す
       @user.last_kana = nil
       @user.valid? # validatesに引っかかるかどうか
-      expect(@user.errors[:last_kana]).to include("を入力してください", "カナを入力してください")
+      expect(@user.errors[:last_kana]).to include('を入力してください', 'カナを入力してください')
       # なぜ保存できないのかを返すerrorsメソッド
     end
     it 'is invalid without a date' do

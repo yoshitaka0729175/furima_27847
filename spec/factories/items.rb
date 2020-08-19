@@ -10,6 +10,6 @@ FactoryBot.define do
     shipping_region_id      { 1 }
     shipping_charges_id     { 1 }
     price                   { 1000 }
-    user               
+    user
   end
 end
