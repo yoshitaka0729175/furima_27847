@@ -19,10 +19,10 @@
       %p.or-text or
       = link_to '削除', item_path, method: :delete, class:'item-destroy'
     - else
-    - if @item.order.present? || @item.user_id == current_user.id
-      売り切れました。
-    - elsif user_signed_in?
-      = link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"
+      - if @item.order.present? 
+        売り切れました。
+      - elsif user_signed_in?
+        = link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"
    
 
         
