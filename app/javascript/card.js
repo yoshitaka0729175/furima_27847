@@ -1,4 +1,6 @@
-const pay = () => {
+if( document.URL.match(/orders/)){
+
+  const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);// PAY.JPテスト公開鍵
   const form = document.getElementById("charge-form");
   form.addEventListener("submit", (e) => {
@@ -17,6 +19,7 @@ const pay = () => {
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
         const token = response.id;
+        console.log(token)
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='order_addresses[token]'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
@@ -38,3 +41,4 @@ const pay = () => {
 };
 
 window.addEventListener("load", pay);
+}

@@ -76,8 +76,13 @@
 .img-upload {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 2vh 0;
+}
+
+.preview_image img {
+  width: 100px;
 }
 
 .click-upload {
